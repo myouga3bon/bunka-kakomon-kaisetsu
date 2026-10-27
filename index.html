@@ -1,37 +1,51 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>文化学園長野高校 学力検査 過去問解説</title>
 <style>
-:root{--bg:#fffaf3;--ink:#2b2b2b;--blue:#e3f0fb;--blueb:#b9d7f0;--on:#f08a24;--card:#fff;--line:#eadfce;--ans:#c0392b;--hint:#fff2a8;--hintb:#e6b800}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
-header{padding:20px 16px 8px;max-width:900px;margin:0 auto}
-h1{font-size:1.35rem;margin:0 0 4px}.sub{color:#666;font-size:.85rem;margin:0}
-nav{max-width:900px;margin:0 auto;padding:8px 16px;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
-.row{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
-button{font:inherit;cursor:pointer;border:1.5px solid var(--blueb);background:var(--blue);color:#1d4466;border-radius:10px;padding:8px 14px;font-weight:600}
-button.on{background:var(--on);border-color:var(--on);color:#fff}
-main{max-width:900px;margin:0 auto;padding:12px 16px 60px}
-h2{font-size:1.15rem;margin:22px 0 8px;padding:6px 12px;background:#fde7cd;border-left:6px solid var(--on);border-radius:4px}
-.it{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
-.q{font-weight:700;color:#555;font-size:.9rem}.a{color:var(--ans);font-weight:700;font-size:1.05rem;margin:2px 0 4px;white-space:pre-wrap}
+:root{--bg:#fffdf7;--ink:#33304a;--card:#fff;--line:#f0e6d8;--ans:#e0457b;--hint:#fff2a8;--hintb:#f2c200;
+--acc:#5aa5f5;--accl:#dcecff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) radial-gradient(circle at 12px 12px,#ffe9f1 3px,transparent 4px) 0 0/48px 48px;color:var(--ink);font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.75}
+header{padding:22px 16px 14px;text-align:center;background:linear-gradient(120deg,#ffd6e7,#fff1b8 35%,#d4f5dc 65%,#d3e6ff);border-bottom:4px dotted #fff;box-shadow:0 4px 14px #0000000f}
+h1{font-size:1.5rem;margin:0 0 4px;letter-spacing:.04em;text-shadow:2px 2px 0 #fff}
+.sub{color:#6b6585;font-size:.88rem;margin:0}
+nav{max-width:920px;margin:12px auto 0;padding:10px 14px;background:#ffffffcc;border:3px solid #fff;border-radius:22px;box-shadow:0 4px 14px #0000001a;position:sticky;top:6px;z-index:5;backdrop-filter:blur(4px)}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0;align-items:center}
+.lab{font-size:.78rem;font-weight:800;border-radius:999px;padding:2px 10px;color:#fff;margin-right:2px}
+button{font:inherit;cursor:pointer;border:2.5px solid var(--bc);background:var(--bg0);color:var(--tx);border-radius:999px;padding:7px 15px;font-weight:800;transition:transform .12s,box-shadow .12s;box-shadow:0 3px 0 var(--bc)}
+button:hover{transform:translateY(-2px)}button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--bc)}
+button.on{background:var(--bs);border-color:var(--bs);color:var(--ts,#fff);box-shadow:0 3px 0 var(--bd);transform:translateY(-1px)}
+.S{--bg0:#ece5ff;--bc:#cbbaff;--tx:#5a3fb0;--bs:#8e6bff;--bd:#6a48d8}
+.A{--bg0:#d9f5f1;--bc:#a6e3da;--tx:#17776d;--bs:#22b8a9;--bd:#148a7e}
+.s-math{--bg0:#dcecff;--bc:#b3d4fb;--tx:#1d4f8f;--bs:#5aa5f5;--bd:#3a86d6}
+.s-english{--bg0:#ffdfec;--bc:#ffb9d4;--tx:#a22a63;--bs:#f06fa4;--bd:#cf4a85}
+.s-science{--bg0:#fff4b8;--bc:#ffe36e;--tx:#7a5d00;--bs:#f7cf2a;--bd:#d1a900;--ts:#5b4500}
+.s-social{--bg0:#daf5dd;--bc:#a9e5b2;--tx:#25692f;--bs:#4cb866;--bd:#2f9449}
+.s-japanese{--bg0:#ffe4cc;--bc:#ffc999;--tx:#9a4d0b;--bs:#f59a3c;--bd:#d27a1c}
+main{max-width:920px;margin:0 auto;padding:12px 16px 60px}
+.cur{display:inline-block;margin:10px 0 2px;padding:5px 16px;border-radius:999px;background:var(--accl);color:var(--acct);font-weight:800;border:2.5px solid var(--acc)}
+h2{font-size:1.12rem;margin:24px 0 10px;padding:7px 16px;background:var(--accl);color:var(--acct);border:2.5px solid var(--acc);border-radius:999px;display:block;width:fit-content}
+.it{background:var(--card);border:2.5px solid var(--accl);border-left:8px solid var(--acc);border-radius:16px;padding:10px 16px;margin:10px 0;box-shadow:0 4px 10px #0000000d}
+.q{font-weight:800;color:var(--acct);font-size:.9rem}.a{color:var(--ans);font-weight:800;font-size:1.08rem;margin:2px 0 4px;white-space:pre-wrap}
+.a::before{content:"★ ";color:#f7b500}
 .e{font-size:.95rem;white-space:pre-wrap}
-.note{font-size:.8rem;color:#777;margin-top:30px;border-top:1px solid var(--line);padding-top:10px}
+.note{font-size:.8rem;color:#7a7590;margin-top:30px;border-top:3px dotted var(--line);padding-top:10px}
 .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 2px;line-height:1.25;font-size:.95em}
 .fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}.fr>span:last-child{padding:0 3px}
-.tgl{margin:8px 0 4px}
-.tr{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0 18px}
-.tr h3{margin:4px 0 8px;font-size:1rem;color:#8a5a14}
-.ln{padding:6px 0;border-bottom:1px dashed var(--line)}.ln:last-child{border:0}
-.sp{display:inline-block;min-width:4.5em;font-weight:700;color:#1d4466;vertical-align:top}
-.en{font-family:Georgia,"Times New Roman",serif;font-size:1rem}.ja{color:#444;font-size:.93rem;margin-left:4.5em}
-.sl{color:#e07b00;font-weight:700;margin:0 .2em}
-mark.h{background:var(--hint);border-bottom:2px solid var(--hintb);color:inherit;padding:0 1px;border-radius:2px}
-mark.h sup{font-size:.62em;color:#8a6a00;font-weight:700;margin-left:2px}
-.legend{font-size:.82rem;color:#666;margin:4px 0}
-@media (max-width:600px){.ja{margin-left:0}nav{position:static}button{padding:6px 10px;font-size:.9rem}}
+.tgl{margin:10px 0 4px}
+.tr{background:#fff;border:2.5px dashed #ffb9d4;border-radius:18px;padding:10px 16px;margin:10px 0 20px}
+.tr h3{margin:4px 0 8px;font-size:1rem;color:#cf4a85}
+.ln{padding:7px 0;border-bottom:2px dotted #ffd6e7}.ln:last-child{border:0}
+.sp{display:inline-block;min-width:6.5em;font-weight:800;color:#cf4a85;vertical-align:top}
+.en{font-family:Georgia,"Times New Roman",serif;font-size:1rem}.ja{color:#4a4560;font-size:.93rem;margin-left:6.5em}
+.sl{color:#f08a24;font-weight:800;margin:0 .2em}
+mark.h{background:linear-gradient(transparent 35%,var(--hint) 35%);border-bottom:2px solid var(--hintb);color:inherit;padding:0 1px}
+mark.h sup{font-size:.62em;color:#8a6a00;font-weight:800;margin-left:2px}
+.legend{font-size:.82rem;color:#6b6585;margin:4px 0}
+@media (max-width:600px){.ja{margin-left:0}nav{position:static}button{padding:5px 10px;font-size:.88rem}h1{font-size:1.2rem}}
 @media print{nav{display:none}}
 </style></head><body>
-<header><h1>文化学園長野高等学校 学力検査 過去問解説</h1>
-<p class="sub">日程・年度のボタンと科目のボタンを押すと、その解説が表示されます。</p></header>
+<header><h1>📚 文化学園長野高等学校 学力検査 過去問解説 ✨</h1>
+<p class="sub">日程・年度のボタンと科目のボタンを押すと、その解説が表示されます</p></header>
 <nav><div class="row" id="e1"></div><div class="row" id="e2"></div><div class="row" id="ss"></div></nav>
 <main id="m"></main>
 <script>
@@ -55,19 +69,21 @@ function fr(t){return t.replace(FR,(m,p1,n1,p2,d1)=>{const n=p1||n1,d=p2||d1;
  return "<span class='fr'><span>"+n+"</span><span>"+d+"</span></span>"})}
 function hint(t){return t.replace(/\{\{([^:}]*):([\s\S]*?)\}\}/g,(m,l,x)=>"<mark class='h'>"+x+"<sup>"+l+"</sup></mark>")}
 function rich(t){return fr(esc(t))}
-function slash(t){return hint(esc(t)).replace(/\s*\/\s*/g,"<span class='sl'>／</span>")}
+function slash(t){return hint(esc(t).replace(/\s*\/\s*/g,"<span class='sl'>／</span>"))}
 function draw(){
- for(const [id,L] of [["e1",E1],["e2",E2]]){
-  const el=document.getElementById(id);el.innerHTML="";
-  for(const [k,n] of L){const b=document.createElement("button");b.textContent=n;if(k===e)b.className="on";
+ for(const [id,L,c,lb] of [["e1",E1,"S","S日程"],["e2",E2,"A","A日程"]]){
+  const el=document.getElementById(id);el.innerHTML="<span class='lab "+c+"' style='background:var(--bs)'>"+lb+"</span>";
+  for(const [k,n] of L){const b=document.createElement("button");b.textContent=n;b.className=c+(k===e?" on":"");
    b.onclick=()=>{e=k;open=false;save();draw();scrollTo(0,0)};el.appendChild(b)}}
  const el=document.getElementById("ss");el.innerHTML="";
- for(const [k,n] of S){const b=document.createElement("button");b.textContent=n;if(k===s)b.className="on";
+ for(const [k,n] of S){const b=document.createElement("button");b.textContent=({math:"🔢 ",english:"🔤 ",science:"🔬 ",social:"🌏 ",japanese:"📖 "})[k]+n;b.className="s-"+k+(k===s?" on":"");
   b.onclick=()=>{s=k;open=false;save();draw();scrollTo(0,0)};el.appendChild(b)}
- const m=document.getElementById("m");
- let h="<p style='margin:6px 0;color:#666'>"+FULL[e]+" ／ "+S.find(a=>a[0]===s)[1]+"</p>";
+ const m=document.getElementById("m");m.className="s-"+s;
+ const AC={math:["#5aa5f5","#dcecff","#1d4f8f"],english:["#f06fa4","#ffdfec","#a22a63"],science:["#f7cf2a","#fff4b8","#7a5d00"],social:["#4cb866","#daf5dd","#25692f"],japanese:["#f59a3c","#ffe4cc","#9a4d0b"]}[s];
+ m.style.setProperty("--acc",AC[0]);m.style.setProperty("--accl",AC[1]);m.style.setProperty("--acct",AC[2]);
+ let h="<div class='cur'>"+FULL[e]+" ／ "+S.find(a=>a[0]===s)[1]+"</div>";
  if(s==="english"&&T[e]){
-  h+="<div class='tgl'><button id='tg' class='"+(open?"on":"")+"'>"+(open?"英文和訳をとじる":"英文和訳を読む")+"</button></div>";
+  h+="<div class='tgl'><button id='tg' class='s-english"+(open?" on":"")+"'>"+(open?"英文和訳をとじる":"英文和訳を読む")+"</button></div>";
   if(open){h+="<div class='legend'>スラッシュ（／）で区切った英文と日本語訳です。<mark class='h'>黄色</mark>の部分は設問を解くヒント（<mark class='h'>…<sup>(設問番号)</sup></mark>）です。</div>";
    for(const sec of T[e]){h+="<div class='tr'><h3>"+esc(sec.t)+"</h3>";
     for(const [sp,en,ja] of sec.lines){h+="<div class='ln'><div class='en'><span class='sp'>"+esc(sp||"")+"</span>"+slash(en)+"</div><div class='ja'>"+slash(ja||"")+"</div></div>"}
