@@ -23,7 +23,7 @@ button.on{background:var(--bs);border-color:var(--bs);color:var(--ts,#fff);box-s
 .s-japanese{--bg0:#ffe4cc;--bc:#ffc999;--tx:#9a4d0b;--bs:#f59a3c;--bd:#d27a1c}
 main{max-width:920px;margin:0 auto;padding:12px 16px 60px}
 .cur{display:inline-block;margin:10px 0 2px;padding:5px 16px;border-radius:999px;background:var(--accl);color:var(--acct);font-weight:800;border:2.5px solid var(--acc)}
-h2{font-size:1.12rem;margin:24px 0 10px;padding:7px 16px;background:var(--accl);color:var(--acct);border:2.5px solid var(--acc);border-radius:999px;display:block;width:fit-content}
+h2{font-size:1.12rem;margin:24px 0 10px;display:inline-block !important;padding:7px 16px;background:var(--accl);color:var(--acct);border:2.5px solid var(--acc);border-radius:999px;width:fit-content}
 .it{background:var(--card);border:2.5px solid var(--accl);border-left:8px solid var(--acc);border-radius:16px;padding:10px 16px;margin:10px 0;box-shadow:0 4px 10px #0000000d}
 .q{font-weight:800;color:var(--acct);font-size:.9rem}.a{color:var(--ans);font-weight:800;font-size:1.08rem;margin:2px 0 4px;white-space:pre-wrap}
 .a::before{content:"★ ";color:#f7b500}
@@ -31,7 +31,7 @@ h2{font-size:1.12rem;margin:24px 0 10px;padding:7px 16px;background:var(--accl);
 .note{font-size:.8rem;color:#7a7590;margin-top:30px;border-top:3px dotted var(--line);padding-top:10px}
 .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 2px;line-height:1.25;font-size:.95em}
 .fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}.fr>span:last-child{padding:0 3px}
-.tgl{margin:10px 0 4px}
+button.tg{margin:0 0 8px 8px;vertical-align:middle;padding:5px 12px;font-size:.88rem}
 .tr{background:#fff;border:2.5px dashed #ffb9d4;border-radius:18px;padding:10px 16px;margin:10px 0 20px}
 .tr h3{margin:4px 0 8px;font-size:1rem;color:#cf4a85}
 .ln{padding:7px 0;border-bottom:2px dotted #ffd6e7}.ln:last-child{border:0}
@@ -54,7 +54,7 @@ const E1=[["S5","令和5 12月S日程"],["S6","令和6 12月S日程"],["S7","令
 const E2=[["A5","令和5 1月A日程"],["A6","令和6 1月A日程"],["A7","令和7 1月A日程"]];
 const S=[["math","数学"],["english","英語"],["science","理科"],["social","社会"],["japanese","国語"]];
 const FULL={S5:"令和5年度 12月S日程",S6:"令和6年度 12月S日程",S7:"令和7年度 12月S日程",A5:"令和5年度 1月A日程",A6:"令和6年度 1月A日程",A7:"令和7年度 1月A日程"};
-let e="S7",s="math",open=false;
+let e="S7",s="math",open=false,opened={};
 try{const t=localStorage.getItem("bg_sel2");if(t){const a=JSON.parse(t);if(FULL[a[0]])e=a[0];if(S.some(x=>x[0]===a[1]))s=a[1]}}catch(_){}
 function esc(t){return t.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
 /* 分数を縦表示に */
@@ -82,18 +82,18 @@ function draw(){
  const AC={math:["#5aa5f5","#dcecff","#1d4f8f"],english:["#f06fa4","#ffdfec","#a22a63"],science:["#f7cf2a","#fff4b8","#7a5d00"],social:["#4cb866","#daf5dd","#25692f"],japanese:["#f59a3c","#ffe4cc","#9a4d0b"]}[s];
  m.style.setProperty("--acc",AC[0]);m.style.setProperty("--accl",AC[1]);m.style.setProperty("--acct",AC[2]);
  let h="<div class='cur'>"+FULL[e]+" ／ "+S.find(a=>a[0]===s)[1]+"</div>";
- if(s==="english"&&T[e]){
-  h+="<div class='tgl'><button id='tg' class='s-english"+(open?" on":"")+"'>"+(open?"英文和訳をとじる":"英文和訳を読む")+"</button></div>";
-  if(open){h+="<div class='legend'>スラッシュ（／）で区切った英文と日本語訳です。<mark class='h'>黄色</mark>の部分は設問を解くヒント（<mark class='h'>…<sup>(設問番号)</sup></mark>）です。</div>";
-   for(const sec of T[e]){h+="<div class='tr'><h3>"+esc(sec.t)+"</h3>";
-    for(const [sp,en,ja] of sec.lines){h+="<div class='ln'><div class='en'><span class='sp'>"+esc(sp||"")+"</span>"+slash(en)+"</div><div class='ja'>"+slash(ja||"")+"</div></div>"}
-    h+="</div>"}}
- }
- for(const sec of D[e+"_"+s]){if(sec.t)h+="<h2>"+esc(sec.t)+"</h2>";
+ for(const sec of D[e+"_"+s]){
+  const no=(sec.t.match(/^問\d+/)||[""])[0];
+  const tr=(s==="english"&&T[e])?T[e].find(x=>(x.t.match(/^問\d+/)||[""])[0]===no&&no):null;
+  if(sec.t){h+="<h2>"+esc(sec.t)+"</h2>";
+   if(tr){const o=opened[e+no];h+="<button class='s-english tg"+(o?" on":"")+"' data-k='"+e+no+"'>"+(o?no+"の和訳をとじる":no+"の和訳を読もう")+"</button>";
+    if(o){h+="<div class='legend'>スラッシュ（／）で区切った英文と日本語訳です。<mark class='h'>黄色</mark>はヒント（<mark class='h'>…<sup>(設問番号)</sup></mark>）です。</div><div class='tr'><h3>"+esc(tr.t)+"</h3>";
+     for(const [sp,en,ja] of tr.lines){h+="<div class='ln'><div class='en'><span class='sp'>"+esc(sp||"")+"</span>"+slash(en)+"</div><div class='ja'>"+slash(ja||"")+"</div></div>"}
+     h+="</div>"}}}
   for(const [q,a,x] of sec.items){h+="<div class='it'><div class='q'>"+esc(q)+"</div>"+(a&&a!=="—"?"<div class='a'>答："+rich(a)+"</div>":"")+"<div class='e'>"+rich(x)+"</div></div>"}}
  h+="<p class='note'>※解答は、元PDFにある手書き・模範解答と照合して作成しています。図・グラフの作図問題や、手書き解答と食い違う箇所、読み取りに自信のない箇所は解説内に注記しています。念のため原本もご確認ください。</p>";
  m.innerHTML=h;
- const tg=document.getElementById("tg");if(tg)tg.onclick=()=>{open=!open;draw()};
+ m.querySelectorAll("button.tg").forEach(b=>b.onclick=()=>{const k=b.dataset.k;opened[k]=!opened[k];const y=scrollY;draw();scrollTo(0,y)});
 }
 function save(){try{localStorage.setItem("bg_sel2",JSON.stringify([e,s]))}catch(_){}}
 draw();
